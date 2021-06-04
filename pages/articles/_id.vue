@@ -5,7 +5,6 @@
       id="banner"
       class=""
       :data-src="api_url + article.image.url"
-      uk-img
     >
       <h1>{{ article.title }}</h1>
     </div>
