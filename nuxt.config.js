@@ -1,4 +1,7 @@
 export default {
+  env: {
+    strapiBaseUri: process.env.API_URL || "http://localhost:1337"
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'client-angelhub-frontend',
@@ -36,9 +39,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/apollo',
+    '@nuxtjs/markdownit'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+      }
+    }
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
+  },
 }
